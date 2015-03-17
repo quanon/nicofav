@@ -1,0 +1,13 @@
+# RuboCop の TODO リスト
+
+# 1行が長すぎる。
+Metrics/LineLength:
+  Max: 180
+
+# 古いハッシュの記法が存在している。
+Style/HashSyntax:
+  Enabled: false
+
+# class にコメントを残す。
+Documentation:
+  Enabled: false

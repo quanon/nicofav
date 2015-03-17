@@ -1,0 +1,15 @@
+ja:
+  enums:
+  activerecord:
+    models:
+      movie: 動画
+    attributes:
+      common: &common
+        id: ID
+        code: 番号
+        name: 名前
+        title: タイトル
+        updated_at: 最終更新日
+      movie:
+        <<: *common
+        video_id: 動画ID

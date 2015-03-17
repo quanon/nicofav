@@ -1,0 +1,46 @@
+inherit_from: .rubocop_todo.yml
+
+AllCops:
+  Exclude:
+    - 'vendor/**/*'
+    - 'bin/**/*'
+    - 'config/**/*'
+    - 'db/**/*'
+
+# (参考) .rubocop.yml設定例
+# http://qiita.com/hi-nakamura/items/fb841be12566e7f579f0
+
+# 日本語のコメントを許可する。
+Style/AsciiComments:
+  Enabled: false
+
+# Module::Class という記法を許可する。
+ClassAndModuleChildren:
+  Enabled: false
+
+# スラッシュの数に関わらず %r 記法を利用することを許可する。
+Style/RegexpLiteral:
+  Enabled: false
+
+# メソッドの行数を20行まで許可する (デフォルトは10行) 。
+Metrics/MethodLength:
+  Max: 20
+
+# クラスの行数を200行まで許可する (デフォルトは100行) 。
+Metrics/ClassLength:
+  Max: 200
+
+# メソッドチェインの途中で改行するときのドットの位置は前方にする。
+Style/DotPosition:
+  EnforcedStyle: leading
+
+# インスタンス変数名とアクセサのメソッド名が統一されている場合のみ
+# アクセサと判断してチェックする。
+Style/TrivialAccessors:
+  ExactNameMatch: true
+
+Metrics/AbcSize:
+  Max: 20
+
+Style/MultilineOperationIndentation:
+  Enabled: false

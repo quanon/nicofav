@@ -1,0 +1,7 @@
+.alert.alert-danger.js-has-errors
+  ul
+    - messages.each do |message|
+      li
+        = message
+/ - if current_user
+/   = link_to t('views.common.back_home'), home_url

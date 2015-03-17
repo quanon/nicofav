@@ -1,0 +1,24 @@
+li.dropdown.js-notifications
+  a.dropdown-toggle data-toggle='dropdown'
+    = fa_icon('bell lg fw')
+    = fa_icon('caret-down fw')
+  ul.dropdown-menu.dropdown-tasks.notifications role='menu'
+    - notifications = current_user.received_messages.first(Settings.notification.show_count)
+    - if notifications.length > 0
+      - notifications.each.with_index(1) do |notification, i|
+        - comment = notification.from.decorate
+        li.notification
+          a href=comment.commentable_path
+            small.text-muted
+              = comment.created_at
+            .notification__body
+              = notification.body
+        li.divider
+        - if i == notifications.length
+          li.notification
+            a.text-center href='#'
+              = '全ての通知を確認する (未実装)'
+    - else
+      li.notification
+        .text-center
+          = '通知はありません'

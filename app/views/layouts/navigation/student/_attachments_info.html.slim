@@ -1,0 +1,18 @@
+li.dropdown.js-attachments-info
+  a.dropdown-toggle data-toggle='dropdown'
+    = fa_icon('files-o lg fw', text: '添付ファイル')
+    = fa_icon('caret-down fw')
+  ul.dropdown-menu.dropdown-tasks.attachments-info role='menu'
+    - total_file_size = Attachment.total_file_size(current_user.id)
+    - limit_file_size = Attachment.total_file_size_limit
+    - percentage = total_file_size * 100 / limit_file_size
+    li
+      a
+        p
+          strong
+            = t('views.layouts.navigation.attachments.total_file_size')
+          span.pull-right.text-muted
+            = "#{number_to_human_size(total_file_size, locale: :en)} / #{number_to_human_size(limit_file_size, locale: :en)}"
+        .progress.attachments-info__bar
+          - type = (percentage > 80) ? :warning : :info
+          = progress_bar(type, percentage)

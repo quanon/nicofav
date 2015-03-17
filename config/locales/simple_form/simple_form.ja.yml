@@ -1,0 +1,27 @@
+ja:
+  simple_form:
+    yes: はい
+    no: いいえ
+    required:
+      html: '<span>*</span>'
+    error_notification:
+      default_message: "Please review the problems below:"
+    labels:
+      defaults:
+        type: 権限
+        email: メールアドレス
+        code: 番号
+        student_code: 学籍番号
+        name: 氏名
+        belong: 所属
+        grade: 学年
+        password: パスワード
+        remember_me: ログイン状態を記憶する
+        csv_file: CSV ファイル
+        excel_file: Excel ファイル
+        category: 分類
+        file: ファイル
+        description: 説明
+        title: タイトル
+        template_title: レポート
+        updated_at: 最終更新日

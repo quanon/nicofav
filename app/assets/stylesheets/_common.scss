@@ -1,0 +1,34 @@
+.breadcrumb {
+  font-size: 13px;
+}
+
+ul.chat li.comment {
+  padding: 10px;
+}
+
+ul.inner-flash {
+  margin-bottom: 0;
+}
+
+.navbar {
+  .attachments-info {
+    width: 300px;
+
+    .attachments-info__bar {
+      margin-bottom: 10px;
+    }
+  }
+
+  .notifications {
+    width: 300px;
+
+    .notification__body {
+      white-space: normal;
+      font-size: 13px;
+    }
+  }
+}
+
+.panel-heading__button {
+  margin-top: -4.5px;
+}

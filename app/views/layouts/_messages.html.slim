@@ -1,0 +1,8 @@
+- flash.each.with_index(1) do |(name, message), i|
+  - if message.is_a?(String)
+    - alert_type = (name == 'notice') ? 'success' : 'danger'
+    div class="alert alert-#{alert_type}" data=({ alert: { id: "alert-#{i}"} })
+      a.close data-target="[data-alert-id=alert-#{i}]" data-dismiss="alert"
+        | &times;
+      div
+        = sanitize(message)

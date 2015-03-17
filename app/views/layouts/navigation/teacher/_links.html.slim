@@ -1,0 +1,6 @@
+li.js-nav-user-reports
+  = link_to(t('activerecord.models.user_report'), public_send("#{current_user_type}_user_reports_url"))
+li.js-nav-user-free-reports
+  = link_to(t('activerecord.models.user_free_report'), public_send("#{current_user_type}_user_free_reports_url"))
+li.js-nav-user-achievement-checks
+  = link_to(t('activerecord.models.user_achievement_check'), public_send("#{current_user_type}_user_achievement_checks_url"))

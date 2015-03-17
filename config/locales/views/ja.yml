@@ -1,0 +1,196 @@
+ja:
+  views:
+    common:
+      total: 合計
+      back_home: ホーム画面に戻る
+      back_to_index: 一覧画面に戻る
+      back_to_login: ログイン画面に戻る
+      csv_import: CSV インポート
+      excel_import: Excel インポート
+      tool: ツール
+      conditional_search: 条件検索
+      remind: 督促
+      button:
+        new: 新規作成
+        close: 閉じる
+        submit: 確定
+        finish: 終了
+        previous: 戻る
+        back: 戻る
+        next: 進む
+        ahead: 進む
+        delete: 削除
+        reset: リセット
+        search: 検索
+        check_all: 全選択
+        uncheck_all: 全解除
+        send_remind_mail: 督促メール送信
+    layouts:
+      navigation:
+        student_tasks:
+          title: 課題
+        attachments:
+          total_file_size: 添付ファイル容量
+        notifications:
+          comment: |
+            %{user_name}さんがあなたの%{model_name}「%{title}」にコメントを付けました。
+    devise:
+      sessions:
+        login: ログイン
+        logout: ログアウト
+        forget_password: パスワードを忘れた場合はこちら
+    admin:
+      dashboard:
+        index:
+          title: ダッシュボード
+          show_details: 詳細を見る
+          belong: 所属 (学部/学科/専攻)
+      belongs:
+        index:
+          title: 所属一覧
+      users:
+        index:
+          title: ユーザ一覧
+        edit:
+          title: 編集
+      achievement_checks:
+        index:
+          title: 達成度チェック一覧
+    teacher:
+      user_reports:
+        index:
+          title: レポート一覧
+          callout:
+            body: |
+              <p>
+                学生のレポートの一覧です。提出済のレポートは内容を確認できます。
+              </p>
+          remind:
+            select_report: レポートを選択してください。
+            not_submitted_students: 未提出の学生一覧
+        show:
+          title: レポート確認
+          callout:
+            body: |
+              <p>
+                レポートの内容です。<br>
+                このレポートを作成した学生、あるいはその他の確認者に対して何かコメントがあれば投稿してください。
+              </p>
+      user_free_reports:
+        index:
+          title: フリーレポート一覧
+          callout:
+            body: |
+              <p>
+                学生のフリーレポートの一覧です。フリーレポートは学生が個人で自由に作成できるレポートです。<br>
+                一覧には提出済のフリーレポートのみ表示されます。
+              </p>
+        show:
+          title: フリーレポート確認
+          callout:
+            body: |
+              <p>
+                フリーレポートの内容です。<br>
+                このレポートを作成した学生、あるいはその他の確認者に対して何かコメントがあれば投稿してください。
+              </p>
+      user_achievement_checks:
+        index:
+          title: 達成度チェック一覧
+          callout:
+            body: |
+              <p>
+                学生の達成度チェックの一覧です。完了した達成度チェックは内容を確認できます。
+              </p>
+          remind:
+            select_achievement_check: 達成度チェックを選択してください。
+            not_finished_students: 未完了の学生一覧
+        show:
+          title: 達成度チェック確認
+          callout:
+            body: |
+              <p>
+                学生の達成度チェックの結果です。<br>
+                この達成度チェックを行った学生、あるいはその他の確認者に対して何かコメントがあれば投稿してください。
+              </p>
+    student:
+      home:
+        callout:
+          body: |
+            <p>
+              現在あなたに課されている課題の一覧です。<br>
+              それぞれの締切日までにレポートを提出し、達成度チェックを完了させましょう。
+            </p>
+      user_reports: &user_reports
+        index:
+          title: レポート一覧
+        edit:
+          title: レポート編集
+          add_attachment: 追加
+          button:
+            save: 一時保存
+            submit: 提出
+          callout:
+            body: |
+              <p>
+                レポートを編集しましょう。任意のタイトルを設定し、それぞれの項目に記入してください。<br>
+                必要があればレポートの内容に関係するファイルを添付してください。
+              </p>
+          about_save: |
+            <strong>一時保存</strong> の場合はレポートはまだ教職員に公開されません。
+        show:
+          title: レポート確認
+          cancel: 提出取消
+          callout:
+            body: |
+              <p>
+                提出済みのレポートの内容です。このレポートの確認者に対して何かコメントがあれば投稿してください。<br>
+                もし必要があれば、提出を取り消した上、レポートを再編集してください。提出を取り消しても、投稿されているコメントは消えません 。
+              </p>
+      user_free_reports:
+        <<: *user_reports
+        index:
+          title: フリーレポート一覧
+          callout:
+            body: |
+              <p>
+                フリーレポートはあなたが自由に作成できるレポートです。
+              </p>
+        show:
+          back_to_index: 一覧画面に戻る
+      user_achievement_checks:
+        index:
+          title: 達成度チェック一覧
+        edit:
+          title: 達成度チェック編集
+          make_a_choice: |
+            この目標はどの程度達成できましたか？いずれかを選択してください。
+          callout:
+            body: |
+              <p>
+                設定された目標に対するあなたの達成度をチェックしましょう。<br>
+                表示されている設問に対して最も適切な選択肢をクリックしてください。
+              </p>
+        show:
+          title: 達成度チェック確認
+          redo: やり直す
+          callout:
+            body: |
+              <p>
+                達成度チェックの結果を総合的に確認しましょう。この達成度チェック結果の確認者に対して何かコメントがあれば投稿してください。<br>
+                もし必要があれば、達成度チェックをやり直してください。達成度チェックをやり直しても、投稿されているコメントは消えません 。
+              </p>
+      report_templates:
+        index:
+          title: テンプレート選択
+          callout:
+            body: |
+              <p>
+                作成するフリーレポートの形式 (テンプレート) を選択してください。
+              </p>
+    mixins:
+      comments:
+        post: コメント
+      user_achievement_checks:
+        educational_aim: 教育目標
+      user_reports:
+        no_attachments: 添付ファイルはありません。

@@ -1,0 +1,32 @@
+doctype html
+html lang='ja'
+  head
+    meta name='viewport' content='width=device-width, initial-scale=1.0'
+    title
+      = Settings.system_name
+    - description_content = content_for?(:description) ? yield(:description) : 'Bootstrap App'
+    meta name='description' content=description_content
+
+  = stylesheet_link_tag 'font_awesome', media: 'all'
+  = stylesheet_link_tag 'libraries',    media: 'all'
+  = stylesheet_link_tag 'application',  media: 'all'
+
+  = javascript_include_tag 'application'
+  = include_gon
+  = csrf_meta_tags
+
+  javascript:
+    var I18n;
+
+    I18n = I18n || {};
+    I18n.defaultLocale = "#{I18n.default_locale}";
+    I18n.locale = "#{I18n.locale}";
+
+  = yield(:head)
+
+  body class=body_class
+    = render 'layouts/navigation'
+    .container
+      .js-flash
+        = render 'layouts/messages'
+      = yield

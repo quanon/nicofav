@@ -1,0 +1,2 @@
+p.help-block.error-message
+  = @text

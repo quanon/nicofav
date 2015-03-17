@@ -1,0 +1,20 @@
+default: &default
+  adapter: postgresql
+  encoding: utf8
+  username: postgres
+  password: postgres
+  host: localhost
+  pool: 5
+  timeout: 5000
+
+development:
+  <<: *default
+  database: nicofav_development
+
+test:
+  <<: *default
+  database: nicofav_test
+
+production:
+  <<: *default
+  database: nicofav

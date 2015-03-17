@@ -1,0 +1,223 @@
+@import 'compass/css3/border-radius';
+
+@mixin calc($property, $expression) {
+  #{$property}: -webkit-calc(#{$expression});
+  #{$property}: calc(#{$expression});
+}
+
+/* Bootstrap */
+
+body {
+  $navbar-height: 60px;
+  $navbar-margin-bottom: 21px;
+
+  padding-top: $navbar-height + $navbar-margin-bottom;
+  background-color: $body-bg;
+}
+
+.container {
+  padding-bottom: 15px;
+}
+
+.page-header {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-bottom: 0;
+}
+
+.navbar {
+  border-radius: 0;
+
+  &.navbar-fixed-top {
+    // .popover の z-index (1060) より大きくする。
+    z-index: 1090;
+  }
+}
+
+.popover {
+  font-size: $help-font-size;
+}
+
+.table.table-bordered {
+  & > thead > tr > th,
+  & > tbody > tr > th,
+  & > tfoot > tr > th,
+  & > thead > tr > td,
+  & > tbody > tr > td,
+  & > tfoot > tr > td {
+    border: 2px solid $table-border-color;
+  }
+
+  th:last-child,
+  td:last-child {
+    border-right-width: 2px;
+  }
+}
+
+.form-control {
+  border-color: $table-border-color;
+}
+
+.btn-group-vertical {
+  .btn:first-child:hover {
+    border-bottom: 1px solid $table-border-color;
+  }
+
+  .btn:not(:first-child) {
+    border-top: 1px solid $table-border-color;
+  }
+}
+
+.modal-dialog {
+  // .modal-backdrop の z-index (1040) より大きくする。
+  z-index: 1050;
+}
+
+/* Data Tables */
+
+table.dataTable {
+  &.no-footer {
+    border-bottom: 1px solid $table-border-color;
+  }
+
+  &.table.table-bordered {
+    & > thead > tr > th,
+    & > tbody > tr > th,
+    & > tfoot > tr > th,
+    & > thead > tr > td,
+    & > tbody > tr > td,
+    & > tfoot > tr > td {
+      border: 1px solid $table-border-color;
+    }
+
+    th:last-child,
+    td:last-child {
+      border-right-width: 1px;
+    }
+  }
+
+  thead th {
+    border-top: 1px solid $table-border-color !important;
+    background-color: lighten($table-border-color, 10%) !important;
+    border-bottom: 1px solid $table-border-color;
+
+    // ソートの矢印の画像を FontAwesome のアイコンに置き換える。
+    // (参考) Font Awesome integration
+    // http://datatables.net/blog/2014-06-06
+    position: relative;
+    background-image: none !important;
+
+    &.sorting:after,
+    &.sorting_asc:after,
+    &.sorting_desc:after {
+      position: absolute;
+      top: 12px;
+      right: 8px;
+      display: block;
+      font-family: FontAwesome;
+    }
+
+    &.sorting:after {
+      content: '\f0dc'; // fa-sort
+      font-size: 0.8em;
+      padding-top: 0.12em;
+    }
+    &.sorting_asc:after {
+      content: '\f0de'; // fa-sort-asc
+    }
+    &.sorting_desc:after {
+      content: '\f0dd'; // fa-sort-desc
+    }
+  }
+
+  tbody {
+    tr:hover,
+    tr:hover table tbody tr {
+      background-color: lighten($table-border-color, 15%) !important;
+    }
+
+    td {
+      .progress {
+        margin-top: 5px;
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  @mixin control-open() {
+    content: '\f196';
+    font-family: FontAwesome;
+    background-color: transparent;
+  }
+
+  @mixin control-close() {
+    content: '\f147';
+    font-family: FontAwesome;
+    background-color: transparent;
+  }
+
+  @mixin control() {
+    color: $brand-primary;
+    border: none;
+    box-shadow: none;
+    box-sizing: content-box;
+  }
+
+  &.dtr-inline.collapsed tbody {
+    td:first-child,
+    th:first-child {
+      position: relative;
+      cursor: pointer;
+
+      &:before {
+        margin-right: 10px;
+        font-size: 18px;
+        @include control;
+        @include control-open;
+      }
+
+      &.dataTables_empty:before {
+        display: none;
+      }
+    }
+
+    tr.parent {
+      td:first-child:before,
+      th:first-child:before {
+        @include control-close;
+      }
+    }
+
+    tr.child td:before {
+      display: none;
+    }
+  }
+}
+
+// datatables の表示件数とラベルをブラウザ枠が狭くても横に並べる
+.dataTables_length {
+  .form-control {
+    display: inline;
+  }
+}
+
+// datatables のクイック検索とラベルをブラウザ枠が狭くても横に並べる
+.dataTables_filter {
+  .form-control {
+    display: inline;
+  }
+}
+
+.dataTables_wrapper {
+  .dataTables_paginate {
+    .paginate_button {
+      padding: 0;
+      margin-left: 0;
+      border: none !important;
+
+      a {
+        padding: 10px 12px !important;
+      }
+    }
+  }
+}
