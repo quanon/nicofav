@@ -16,6 +16,7 @@
 //= require i18n
 //= require i18n/locales
 //= require cocoon
+//= require underscore
 //= require backbone
 //= require backbone.stickit/backbone.stickit
 //= require backbone.marionette

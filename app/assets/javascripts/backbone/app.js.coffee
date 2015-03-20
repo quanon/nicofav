@@ -2,8 +2,8 @@
 #= require_tree ./templates
 #= require_tree ./utils
 
-@App = do (Backbone, Marionette) ->
-  app = new Marionette.Application
+@App = do (Backbone) ->
+  app = new Backbone.Marionette.Application
 
   app.on 'start', ->
     options =

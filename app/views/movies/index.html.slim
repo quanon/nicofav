@@ -1,0 +1,21 @@
+.row
+  .col-sm-12
+    h2.page-header
+      = '動画一覧'
+
+.row
+  .col-sm-12
+    - @movies.each do |movie|
+      .panel.panel-default
+        .panel-body
+          .row
+            .col-xs-8.col-sm-10
+              .h4
+                = link_to(movie.title, movie.url)
+              p
+                = movie.description
+            .col-xs-4.col-sm-2
+              .pull-right
+                img.img-responsive.img-thumbnail src=movie.thumbnail_url alt=movie.title
+                .text-right.text-muted
+                  = movie.length
