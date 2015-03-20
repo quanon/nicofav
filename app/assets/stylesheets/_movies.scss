@@ -1,0 +1,17 @@
+body.movies.index {
+  // 画面幅が 768px 未満でも inline を保つ。
+  .form-inline .form-group,
+  .navbar-form .form-group {
+    display: inline-block;
+    margin-bottom: 0;
+    vertical-align: middle;
+  }
+
+  .add-button {
+    margin-left: 3px;
+  }
+
+  .movie-url {
+    margin-left: 10px;
+  }
+}

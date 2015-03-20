@@ -1,21 +1,27 @@
 .row
-  .col-sm-12
+  .col-xs-6
     h2.page-header
-      = '動画一覧'
-
+      = fa_icon('heart fw', text: 'お気に入り')
+  .col-xs-6
+    .page-header.pull-right
+      = simple_form_for :movie, wrapper: :inline_form, url: movies_path, html: { class: 'form-inline' } do |f|
+        = f.input :video_id, required: false, placeholder: '動画ID'
+        = f.button :submit, value: '追加', class: 'btn btn-primary add-button'
 .row
   .col-sm-12
     - @movies.each do |movie|
       .panel.panel-default
         .panel-body
           .row
-            .col-xs-8.col-sm-10
-              .h4
-                = link_to(movie.title, movie.url)
-              p
-                = movie.description
             .col-xs-4.col-sm-2
               .pull-right
                 img.img-responsive.img-thumbnail src=movie.thumbnail_url alt=movie.title
                 .text-right.text-muted
                   = movie.length
+            .col-xs-8.col-sm-10
+              .h4
+                = movie.title
+                span.movie-url
+                  = link_to(fa_icon('link'), movie.url)
+              p
+                = movie.description
